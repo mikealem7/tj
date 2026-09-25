@@ -272,7 +272,18 @@ button{font:inherit;color:inherit}
 .hs-grid{display:grid;gap:22px;grid-template-columns:1fr}
 @media (min-width:860px){.hs-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr)}}
 .hs-wrap{position:relative;max-width:420px;width:100%;margin-inline:auto}
-.hs-wrap svg{display:block;width:100%;height:auto}
+.hs-wrap svg,.hs-wrap img{display:block;width:100%;height:auto}
+.hs-wrap.photo{max-width:none}
+.hs-wrap.photo img{border-radius:14px;border:1px solid var(--line)}
+.hs-grid.wide{grid-template-columns:1fr}
+.side.split{grid-template-columns:1fr}
+@media (min-width:860px){.side.split{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.hs{width:28px;height:28px;font-size:.75rem;border-width:2px}}
+.gallery{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.gallery figure{margin:0;display:grid;gap:10px;align-content:start}
+.gallery img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;border:1px solid var(--line)}
+.gallery figcaption{display:grid;gap:4px;color:var(--ink-2);font-size:.95rem;max-width:60ch}
+.gallery figcaption .label{color:var(--ink)}
 .hs{position:absolute;transform:translate(-50%,-50%);width:34px;height:34px;border-radius:50%;border:3px solid var(--surface);background:var(--accent);color:var(--on-accent);font-family:var(--mono);font-weight:700;font-size:.85rem;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25);animation:ping 2.2s ease-out infinite}
 .hs.seen{background:var(--ink);color:var(--ground);animation:none}
 .hs[aria-pressed="true"]{outline:3px solid var(--accent);outline-offset:2px}
@@ -388,8 +399,9 @@ footer .wrap{display:grid;gap:14px}
           <text x="264" y="182" text-anchor="middle">FEEDER CABLE</text>
         </g>
         <g data-node="coyote">
-          <path class="shape" d="M380 207 V142 Q380 112 405 112 Q430 112 430 142 V207 Z"/>
-          <rect class="shape" x="374" y="190" width="62" height="10" rx="3"/>
+          <path class="shape" d="M362 210 V222 H448 V210" style="fill:none"/>
+          <rect class="shape" x="370" y="176" width="70" height="34" rx="5"/>
+          <rect class="shape" x="380" y="170" width="50" height="10" rx="3"/>
           <text x="405" y="236" text-anchor="middle">COYOTE</text>
         </g>
         <g data-node="drop">
@@ -638,53 +650,45 @@ footer .wrap{display:grid;gap:14px}
     <div class="station-head">
       <div class="row"><span class="label">Station 6 of 8</span><span class="status" data-status="coyote">Not lit yet</span></div>
       <h2>At the Coyote</h2>
-      <p class="lede">The Coyote is a sealed dome splice closure. It's where fibers from the big feeder cable are joined and branched off toward customers. It lives in a pedestal, in a handhole, or up on the strand. Your first job is to open it cleanly and your last job is to seal it tight.</p>
+      <p class="lede">The Coyote is a small, flat splice closure that sits in a handhole at ground level. Fibers from the distribution cable are spliced here and sent out on drop cables toward individual homes. You lift it out on its cable slack, open the lid, splice on its tray, and seal it back up tight.</p>
     </div>
-    <div class="plain" style="margin-bottom:26px"><span class="label">In plain English</span><p>Think of it as a waterproof junction box for glass. Inside are stacked trays that hold the splices, and a basket that holds the spare tube. Everything you do inside has to survive years of rain and heat after you close it.</p></div>
+    <div class="plain" style="margin-bottom:26px"><span class="label">In plain English</span><p>Think of it as a waterproof lunchbox for glass. Cables come in through blue seals at the corners, the spare fiber coils around the tray, and your splices sit in the yellow holders. Everything inside has to survive years of rain and mud after the lid snaps shut.</p></div>
 
-    <div class="hs-grid">
-      <div class="hs-wrap" id="coyote-hs">
-        <svg viewBox="0 0 400 460" role="img" aria-label="Cutaway drawing of a Coyote dome closure">
-          <path d="M112 380 V122 Q112 40 200 40 Q288 40 288 122 V380 Z" style="fill:var(--glass);fill-opacity:.14;stroke:var(--ink-2);stroke-width:2.5"/>
-          <rect x="190" y="24" width="20" height="18" rx="3" style="fill:var(--ink-2)"/>
-          <rect x="192" y="88" width="16" height="276" rx="3" style="fill:var(--surface-2);stroke:var(--ink-2);stroke-width:1.5"/>
-          <g style="fill:var(--surface);stroke:var(--ink-2);stroke-width:1.5">
-            <rect x="136" y="96" width="128" height="18" rx="4"/><rect x="136" y="118" width="128" height="18" rx="4"/>
-            <rect x="136" y="140" width="128" height="18" rx="4"/><rect x="136" y="162" width="128" height="18" rx="4"/>
-            <rect x="136" y="184" width="128" height="18" rx="4"/>
-          </g>
-          <g style="fill:#1F5FD1"><rect x="150" y="102" width="26" height="6" rx="2"/><rect x="186" y="124" width="26" height="6" rx="2"/><rect x="220" y="146" width="26" height="6" rx="2"/></g>
-          <g style="fill:none;stroke-width:4">
-            <ellipse cx="200" cy="282" rx="72" ry="40" style="stroke:#1F5FD1"/>
-            <ellipse cx="200" cy="282" rx="62" ry="32" style="stroke:#F07F18"/>
-            <ellipse cx="200" cy="282" rx="52" ry="24" style="stroke:#1E9E4A"/>
-          </g>
-          <path d="M122 232 H278 L270 332 H130 Z" style="fill:none;stroke:var(--ink-2);stroke-width:1.5;stroke-dasharray:5 4"/>
-          <rect x="132" y="344" width="42" height="22" rx="3" style="fill:var(--surface-2);stroke:var(--ink-2);stroke-width:1.5"/>
-          <circle cx="153" cy="355" r="5" style="fill:var(--ink-2)"/>
-          <path d="M153 360 C 150 380, 140 400, 150 420" style="fill:none;stroke:#1E9E4A;stroke-width:3"/>
-          <rect x="108" y="376" width="184" height="6" rx="3" style="fill:var(--ink)"/>
-          <rect x="100" y="382" width="200" height="16" rx="4" style="fill:var(--ink-2)"/>
-          <rect x="292" y="378" width="18" height="24" rx="3" style="fill:var(--ink-2);stroke:var(--surface);stroke-width:2"/>
-          <rect x="116" y="398" width="168" height="34" rx="4" style="fill:var(--surface-2);stroke:var(--ink-2);stroke-width:2"/>
-          <g style="fill:var(--surface);stroke:var(--ink-2);stroke-width:1.5"><rect x="140" y="432" width="28" height="12" rx="2"/><rect x="186" y="432" width="28" height="12" rx="2"/><rect x="232" y="432" width="28" height="12" rx="2"/></g>
-          <g style="stroke:var(--cable);stroke-linecap:round"><path d="M154 444 V460" style="stroke-width:12"/><path d="M200 444 V460" style="stroke-width:12"/><path d="M246 444 V460" style="stroke-width:6"/></g>
-        </svg>
+    <div class="gallery">
+      <figure>
+        <img src="images/coyote-closed.jpg" alt="A closed Coyote closure lifted out of its handhole onto the grass, with drop cables leaving through the bottom ports and colored ID ties on the cables" width="900" height="752" loading="lazy">
+        <figcaption><span class="label">Closed, ready to go back in the handhole</span>Lid snapped on all the way around, label strip on top, cables leaving through the ports, and ID ties and tags left on the cables.</figcaption>
+      </figure>
+      <figure>
+        <img src="images/coyote-open-field.jpg" alt="An open Coyote on the ground with the lid set aside, showing the fiber loop, yellow splice holders, blue port seals, and a label strip on the tray" width="900" height="696" loading="lazy">
+        <figcaption><span class="label">Open, on a job</span>Lid set aside face-up. The tray is labeled with the route ID and the fiber range (1&ndash;20 here). The fiber loop sits under the white tabs, sleeves go in the yellow holders.</figcaption>
+      </figure>
+    </div>
+
+    <div class="sub-head">
+      <h3>Inside the Coyote</h3>
+      <p>This is a real open Coyote. Tap each numbered dot, or a part name below the photo. Explore all 8 parts to light this station (along with the checklist).</p>
+    </div>
+    <div class="hs-grid wide">
+      <div class="hs-wrap photo" id="coyote-hs">
+        <img src="images/coyote-open.jpg" alt="An open Coyote closure on a workbench: the lid on the left and the base on the right with blue port seals, hose clamps, a coiled fiber loop, white retainer tabs, and yellow splice holders" width="1400" height="946">
       </div>
-      <div class="side">
+      <div class="side split">
         <div class="panel part-info" id="coyote-info" aria-live="polite">
-          <span class="label">Tap a numbered dot or a part below</span>
-          <h3>Inside the Coyote</h3>
-          <p>Explore all 8 parts. Each one tells you what it does and what you do with it on the job.</p>
+          <span class="label">Tap a numbered dot or a part name</span>
+          <h3>Lid on the left, base on the right</h3>
+          <p>Each part tells you what it does and what you do with it on the job.</p>
         </div>
-        <ul class="parts" id="coyote-parts"></ul>
-        <p class="counter" id="coyote-counter" style="margin:0"></p>
+        <div class="side">
+          <ul class="parts" id="coyote-parts"></ul>
+          <p class="counter" id="coyote-counter" style="margin:0"></p>
+        </div>
       </div>
     </div>
 
     <div class="sub-head">
       <h3>Coyote job checklist</h3>
-      <p>The whole job, start to finish. Check each step off as you read it. Your company's method of procedure (MOP) sets the exact lengths and torque values.</p>
+      <p>The whole job, start to finish. Check each step off as you read it. Your company's method of procedure (MOP) sets the exact steps for your area.</p>
     </div>
     <ol class="checklist" id="coyote-check"></ol>
     <a class="next-link" href="#niu">Next: At the NIU &rarr;</a>
@@ -754,12 +758,12 @@ footer .wrap{display:grid;gap:14px}
       <table>
         <thead><tr><th scope="col"><span class="label">&nbsp;</span></th><th scope="col">Coyote</th><th scope="col">NIU</th></tr></thead>
         <tbody>
-          <tr><th scope="row">Where it lives</th><td>Pedestal, handhole, or on the strand near the street</td><td>Outside wall of the customer's home</td></tr>
-          <tr><th scope="row">What comes in</th><td>Feeder or distribution cable, plus drop cables going out</td><td>One drop cable</td></tr>
-          <tr><th scope="row">How many fibers</th><td>Many, in tubes of 12</td><td>Usually one</td></tr>
+          <tr><th scope="row">Where it lives</th><td>In a handhole at ground level. Lift it out on its cable slack to work.</td><td>Outside wall of the customer's home</td></tr>
+          <tr><th scope="row">What comes in</th><td>Distribution cable plus drop cables, through the blue port seals</td><td>One drop cable</td></tr>
+          <tr><th scope="row">How many fibers</th><td>Several. The tray label shows the fiber range.</td><td>Usually one</td></tr>
           <tr><th scope="row">What you splice</th><td>Fiber to fiber, per the splice plan</td><td>Drop fiber to an SC/APC pigtail</td></tr>
-          <tr><th scope="row">How you check it</th><td>VFL and OTDR, tray labels</td><td>Power meter reading, ONT lights up</td></tr>
-          <tr><th scope="row">Before you leave</th><td>Clean seal, latch clamp, flash test, document</td><td>Clean connector, close lid, record reading</td></tr>
+          <tr><th scope="row">How you check it</th><td>VFL or OTDR, then update the tray label</td><td>Power meter reading, ONT lights up</td></tr>
+          <tr><th scope="row">Before you leave</th><td>Wipe the seal, snap the lid, set it back in the handhole, document</td><td>Clean connector, close lid, record reading</td></tr>
         </tbody>
       </table>
     </div>
@@ -840,7 +844,7 @@ footer .wrap{display:grid;gap:14px}
   const NODES = {
     hub: { kicker: 'Where the light starts', title: 'Hub (OLT)', body: 'The provider’s equipment, called the OLT, turns data into pulses of laser light. From here to the customer, the network is passive glass with no power in it.', you: 'Your part: you rarely splice here, but every fiber you touch traces back to a port in the hub.' },
     feeder: { kicker: 'The big cable', title: 'Feeder cable', body: 'A large cable with many buffer tubes, each holding up to 12 color-coded fibers. It runs underground or on poles out to the neighborhoods.', you: 'Your part: find the right tube and fiber by color code before you cut anything.' },
-    coyote: { kicker: 'Where the cable branches', title: 'Coyote closure', body: 'A sealed dome where fibers from the big cable are spliced and sent off toward individual customers. It keeps water and dirt away from the splices for years.', you: 'Your part: open it, splice in the trays, and seal it back up watertight. Station 6 covers it.' },
+    coyote: { kicker: 'Where the cable branches', title: 'Coyote closure', body: 'A small, flat, sealed box that sits in a handhole at ground level. Fibers from the bigger cable are spliced here and sent out on drop cables toward individual homes.', you: 'Your part: lift it out, open it, splice on its tray, and seal it back up watertight. Station 6 covers it.' },
     drop: { kicker: 'The last stretch', title: 'Drop cable', body: 'A small, tough cable that carries one fiber (sometimes a few) from the Coyote to a single home.', you: 'Your part: splice it at the Coyote end and again at the NIU end.' },
     niu: { kicker: 'The front door', title: 'NIU', body: 'The Network Interface Unit on the outside of the home. The drop fiber is spliced to a connector here. It marks the line between the network and the customer’s side.', you: 'Your part: splice, store slack, clean the connector, and check the light level. Station 7 covers it.' },
     ont: { kicker: 'Light becomes internet', title: 'ONT', body: 'The Optical Network Terminal, usually inside the home. It turns light back into internet, TV, and phone.', you: 'Your part: if every splice on the path is good, its lights come on and stay on.' }
@@ -1175,26 +1179,28 @@ footer .wrap{display:grid;gap:14px}
   hotspotStation({
     id: 'coyote',
     parts: [
-      { name: 'Flash-test valve', x: 50, y: 6.5, what: 'A small valve on top of the dome. It lets you pressurize the closed closure to check for leaks.', do: 'If your closure has one, pressurize it and soap-test the seal before you leave. Let the air back out as your MOP says.' },
-      { name: 'Dome', x: 72, y: 20, what: 'The outer shell. It lifts off the base once the clamp is released.', do: 'Clean the outside first so dirt doesn’t fall in. Lift it straight up and set it somewhere clean.' },
-      { name: 'Splice trays', x: 64, y: 32, what: 'Hinged trays stacked on the organizer. Each tray holds a group of splices in sleeve holders.', do: 'Work one tray at a time. Route fibers inside the guides and snap every sleeve into a holder.' },
-      { name: 'Slack basket', x: 40, y: 61, what: 'Storage for spare buffer tube, including express tubes that pass through the closure without being cut.', do: 'Coil tubes loosely along the basket. Never kink or cut a tube you aren’t splicing. It may carry live customers.' },
-      { name: 'Strength member & ground', x: 33, y: 77, what: 'A bracket that anchors the cable’s central strength member and bonds its metal armor to ground.', do: 'Clamp the strength member tight so a pull on the cable never reaches the fibers. Bond the armor exactly as your MOP shows.' },
-      { name: 'Seal (O-ring)', x: 22, y: 83, what: 'The rubber ring between the dome and the base. It’s the only thing keeping water out.', do: 'Wipe it clean and look for cuts or grit before closing. One grain of sand can cause a leak.' },
-      { name: 'Clamp', x: 78, y: 85, what: 'The band that locks the dome to the base and squeezes the seal.', do: 'Release it to open. When closing, make sure it’s seated all the way around and fully latched.' },
-      { name: 'Base & cable ports', x: 50, y: 94, what: 'Where the cables enter the closure. Each port seals around its cable.', do: 'Use the right seal for each cable size. Plug any unused port.' }
+      { name: 'Lid & seal', x: 8, y: 52, what: 'The lid snaps onto the base. The gray band around its rim is the seal that keeps water out.', do: 'Set it face-up on something clean. Before closing, wipe the seal and the base rim. One grain of sand or a blade of grass can let water in.' },
+      { name: 'Instructions QR code', x: 25, y: 37, what: 'A QR code inside the lid that links to the manufacturer’s instructions for this closure.', do: 'Scan it with your phone when you need the official steps or diagrams for this exact model.' },
+      { name: 'Retainer tabs', x: 67.6, y: 26, what: 'White tabs at the top and bottom of the tray that hold the coil of spare fiber down.', do: 'Tuck the loop under the tabs so nothing floats up into the lid when it closes.' },
+      { name: 'Fiber loop', x: 58.8, y: 45, what: 'Spare fiber coiled in one big loop around the tray. Those colors are the 12-color code from Station 4.', do: 'Keep the loop loose and round. A kink or tight bend leaks light, and a VFL will show it as a red glow.' },
+      { name: 'Splice holders', x: 71.6, y: 61, what: 'The yellow combs that hold the heat-shrink sleeves over your splices.', do: 'Press each finished sleeve into its own slot so no splice is left loose in the tray.' },
+      { name: 'Cable anchor', x: 87.2, y: 57.5, what: 'Hose clamps and metal clamp plates grip each cable so a tug on it outside never reaches the fibers.', do: 'Anchor every cable before you splice. Snug the clamp without crushing the cable.' },
+      { name: 'Port seals', x: 58.1, y: 72, what: 'The blue blocks at the corners seal around each cable where it enters the closure.', do: 'Seat each seal snug around its cable and keep unused ports plugged, so water and bugs stay out.' },
+      { name: 'Mounting tabs', x: 70.9, y: 82.5, what: 'Slotted tabs on the edge of the base for mounting or tying the closure down.', do: 'Use them the way your MOP says. Never carry the closure by its cables.' }
     ],
     checklist: [
-      'Set up the site: vest on, cones out. Check for traffic, standing water, and critters in the pedestal or handhole.',
-      'Read the work order and splice plan: which cable, tube, and fiber numbers you’re splicing.',
-      'Clean the outside of the closure, release the clamp, and lift the dome straight off.',
-      'Find the right tube and fiber by color code. If you’re not sure, confirm it with the VFL.',
-      'Prep any new cable: strip the jacket to your MOP length, clamp the strength member, and bond the armor.',
-      'Coil express tubes in the slack basket. Open only the tube you need.',
-      'Splice using the 10 steps. Snap sleeves into the tray and route fibers in the guides.',
-      'Test the splice and label the tray.',
-      'Clean and check the seal, set the dome on, and latch the clamp all the way around.',
-      'Flash-test if equipped, clean up every shard, restore the site, and document your work.'
+      'Set up the site: vest on, cones out. Check the handhole for water, wasps, ants, and snakes before you reach in.',
+      'Read the work order and splice plan: which cable, which fibers, and which home.',
+      'Lift the closure out of the handhole on its cable slack and set it on a clean, flat spot. Never yank on the cables.',
+      'Unlatch the lid and set it face-up somewhere clean so the seal stays free of dirt and grass.',
+      'Read the label on the tray to confirm you have the right closure and fiber range.',
+      'Bring any new cable in through a blue port seal and anchor it with its clamp before you splice.',
+      'Find the right fiber by color code. If you’re not sure, confirm it with the VFL.',
+      'Splice using the 10 steps and press each sleeve into a yellow splice holder.',
+      'Coil the spare fiber loosely in the big loop under the white tabs. Nothing pinched, nothing kinked.',
+      'Test your work, update the tray label, and leave ID tags and colored ties on the cables.',
+      'Wipe the lid seal and base rim, make sure no fiber lies across the rim, then snap the lid on so every latch catches.',
+      'Coil the cable slack back into the handhole, set the closure in, close the handhole lid, pick up every shard, and document your work.'
     ]
   });
   hotspotStation({
@@ -1231,8 +1237,8 @@ footer .wrap{display:grid;gap:14px}
     { q: 'The splicer shows an estimated loss of 0.32 dB. What now?', o: ['Accept it. Nobody will notice.', 'Break it, re-cleave both ends, and splice again', 'Heat the sleeve twice', 'Add a second sleeve'], a: 1, why: 'A good fusion splice is usually 0.05 dB or less. High loss usually means a bad cleave or dirt, so redo it.' },
     { q: 'What’s the right way to clean bare glass before you cleave?', o: ['Paper towel and water', 'Glass cleaner spray', '99% isopropyl alcohol on a lint-free wipe', 'Blow on it'], a: 2, why: '99% alcohol on a lint-free wipe cleans without leaving lint or residue. Pull through once and listen for the squeak.' },
     { q: 'The NIU pigtail connector is green. What does that tell you?', o: ['It’s already been tested', 'It’s APC and only mates with another APC (green) connector', 'It’s UPC', 'It’s for multimode fiber'], a: 1, why: 'Green means APC, with an angled end face. Blue means UPC. Mating the two causes high loss and can damage both end faces.' },
-    { q: 'Some buffer tubes pass through the Coyote without being spliced. What do you do with them?', o: ['Cut them so they’re out of the way', 'Tape them outside the dome', 'Put them in a splice tray', 'Coil them loosely in the slack basket, uncut'], a: 3, why: 'Those are express tubes, and they may carry live customers. Never cut a tube you aren’t working on.' },
-    { q: 'What’s the last thing you do before leaving a Coyote?', o: ['Clean and check the seal, latch the clamp fully, flash-test if equipped, and document', 'Close the dome. The clamp is optional.', 'Leave the dome loose so the next tech can get in', 'Spray the seal with glass cleaner'], a: 0, why: 'The seal and clamp are what keep water out for years. Test it if you can and write down what you did.' }
+    { q: 'Where does the spare fiber go inside the Coyote?', o: ['Wrapped tightly around a yellow splice holder', 'Coiled loosely in the big loop under the white retainer tabs', 'Tucked along the rim of the lid', 'Cut off, since spares aren’t needed'], a: 1, why: 'The loop keeps the fiber from bending too tight and keeps it off the rim. A fiber on the rim gets crushed when the lid snaps on.' },
+    { q: 'What do you do right before you snap the Coyote lid back on?', o: ['Nothing. The lid seals itself.', 'Tape over the blue port seals', 'Wipe the lid seal and base rim and make sure no fiber lies across the rim', 'Spray the seal with glass cleaner'], a: 2, why: 'Dirt or a fiber on the rim breaks the seal and lets water in. A pinched fiber can also crack or leak light.' }
   ];
   let qs;
   function startQuiz() { qs = { i: 0, score: 0, answered: false }; renderQ(); }
