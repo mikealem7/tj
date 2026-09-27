@@ -6,32 +6,17 @@
 <title>Coyote &amp; NIU Splice School</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=Barlow+Condensed:wght@600;700&family=JetBrains+Mono:wght@500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=Barlow+Condensed:wght@600;700&family=Chakra+Petch:wght@500;600;700&family=JetBrains+Mono:wght@500;700&display=swap">
 <style>
 :root{
-  --ground:#EDF1F3; --surface:#FFFFFF; --surface-2:#E2E8EC; --ink:#13202A; --ink-2:#4A5B67; --line:#C8D2D8;
-  --accent:#F5B800; --accent-ink:#7A5A00; --accent-soft:#FFF2C4; --on-accent:#13202A;
-  --laser:#CF2E26; --laser-soft:#FBE3E0; --ok:#15784A; --ok-soft:#DBF1E5; --info:#1E64A3; --info-soft:#DCE9F6;
-  --glass:#86BCD4; --cable:#2B3A45; --shadow:0 1px 2px rgba(19,32,42,.06),0 10px 28px rgba(19,32,42,.07);
-  --display:'Barlow Condensed','Arial Narrow',Arial,sans-serif;
+  --ground:#060B12; --surface:#0B1520; --surface-2:#12202E; --ink:#E4EEF5; --ink-2:#8FA6B8; --line:#1E3245;
+  --accent:#FFC21A; --accent-ink:#FFD35C; --accent-soft:rgba(255,194,26,.10); --on-accent:#0A0F16;
+  --glow:#38E1FF; --glow-soft:rgba(56,225,255,.10); --glow-line:rgba(56,225,255,.38);
+  --laser:#FF5E52; --laser-soft:rgba(255,94,82,.12); --ok:#3EE08F; --ok-soft:rgba(62,224,143,.11); --info:#38E1FF; --info-soft:rgba(56,225,255,.10);
+  --glass:#9FE6FF; --cable:#4A6680; --shadow:0 18px 40px rgba(0,0,0,.45);
+  --display:'Chakra Petch','Barlow Condensed','Arial Narrow',Arial,sans-serif;
   --body:'Barlow',system-ui,-apple-system,'Segoe UI',sans-serif;
   --mono:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;
-  color-scheme:light;
-}
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --ground:#0C151C; --surface:#14202A; --surface-2:#1C2B36; --ink:#E6EDF1; --ink-2:#9DB0BC; --line:#2B3C48;
-    --accent:#FFC21A; --accent-ink:#FFD35C; --accent-soft:#35290A; --on-accent:#13202A;
-    --laser:#FF6157; --laser-soft:#3A1614; --ok:#3ECF8A; --ok-soft:#0F3324; --info:#62ADF2; --info-soft:#0F2A42;
-    --glass:#A9DDF0; --cable:#5A6F80; --shadow:0 1px 2px rgba(0,0,0,.3);
-    color-scheme:dark;
-  }
-}
-:root[data-theme="dark"]{
-  --ground:#0C151C; --surface:#14202A; --surface-2:#1C2B36; --ink:#E6EDF1; --ink-2:#9DB0BC; --line:#2B3C48;
-  --accent:#FFC21A; --accent-ink:#FFD35C; --accent-soft:#35290A; --on-accent:#13202A;
-  --laser:#FF6157; --laser-soft:#3A1614; --ok:#3ECF8A; --ok-soft:#0F3324; --info:#62ADF2; --info-soft:#0F2A42;
-  --glass:#A9DDF0; --cable:#5A6F80; --shadow:0 1px 2px rgba(0,0,0,.3);
   color-scheme:dark;
 }
 
@@ -401,6 +386,86 @@ footer .wrap{display:grid;gap:14px}
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;transition-delay:0s!important}
   #light{animation:none;stroke-dasharray:none!important;opacity:.55}
 }
+
+/* ---------- control-room layer ---------- */
+body{background-color:var(--ground);background-image:
+  radial-gradient(900px 500px at 85% -10%,rgba(56,225,255,.10),transparent 60%),
+  radial-gradient(700px 500px at -10% 30%,rgba(255,194,26,.05),transparent 60%),
+  linear-gradient(rgba(56,225,255,.035) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(56,225,255,.035) 1px,transparent 1px);
+  background-size:auto,auto,48px 48px,48px 48px;background-attachment:fixed}
+::selection{background:rgba(56,225,255,.35);color:#fff}
+h1,h2{letter-spacing:.02em;line-height:1}
+.topbar{background:rgba(6,11,18,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--glow-line);box-shadow:0 1px 24px rgba(56,225,255,.08)}
+.brand{letter-spacing:.06em}
+.brand::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--glow);box-shadow:0 0 10px var(--glow);margin-right:9px;vertical-align:2px}
+.route .dot{background:var(--ground);border-color:var(--line)}
+.route li.lit .dot{background:var(--glow);border-color:var(--glow);box-shadow:0 0 0 3px rgba(56,225,255,.18),0 0 14px var(--glow)}
+.route li.lit:not(:last-child)::after{background:linear-gradient(90deg,var(--glow),rgba(56,225,255,.3));box-shadow:0 0 8px rgba(56,225,255,.6)}
+.route a[aria-current="true"]{color:var(--glow)}
+.route a[aria-current="true"] .dot{border-color:var(--glow)}
+.lit-count{color:var(--glow)}
+
+.station{border-top:0;position:relative}
+.station::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--glow-line),transparent)}
+.station-head .row > .label:first-child{color:var(--glow);display:inline-flex;align-items:center;gap:10px}
+.station-head .row > .label:first-child::before{content:"";width:22px;height:2px;background:var(--glow);box-shadow:0 0 8px var(--glow)}
+.station-head h2{text-shadow:0 0 28px rgba(56,225,255,.22)}
+.status{border-color:var(--line);background:rgba(11,21,32,.7)}
+.status.on{background:var(--glow-soft);border-color:var(--glow);color:var(--glow);box-shadow:0 0 14px rgba(56,225,255,.3);text-shadow:0 0 8px rgba(56,225,255,.6)}
+
+.hero{position:relative;overflow:hidden}
+.hero-fx{position:absolute;left:0;top:0;width:100%;height:640px;pointer-events:none;opacity:.75;-webkit-mask-image:linear-gradient(#000 55%,transparent);mask-image:linear-gradient(#000 55%,transparent)}
+.hero .wrap{position:relative}
+.hero h1{font-size:clamp(2.7rem,9.5vw,6.2rem);color:#fff;text-shadow:0 0 34px rgba(56,225,255,.35)}
+.hero h1 span{color:var(--glow);text-shadow:0 0 18px rgba(56,225,255,.45);letter-spacing:.08em}
+.facts b{color:var(--glow)}
+
+.panel,.bench-stage,.diagram-scroll,.table-scroll{background:linear-gradient(180deg,rgba(18,32,46,.92),rgba(11,21,32,.92));border-color:var(--line);box-shadow:var(--shadow),inset 0 1px 0 rgba(255,255,255,.03)}
+.panel,.bench-stage{position:relative}
+.panel::after,.bench-stage::after{content:"";position:absolute;inset:-1px;pointer-events:none;border-radius:inherit;background:
+  linear-gradient(var(--glow),var(--glow)) left top/16px 2px no-repeat,
+  linear-gradient(var(--glow),var(--glow)) left top/2px 16px no-repeat,
+  linear-gradient(var(--glow),var(--glow)) right bottom/16px 2px no-repeat,
+  linear-gradient(var(--glow),var(--glow)) right bottom/2px 16px no-repeat;opacity:.8}
+.plain{background:var(--accent-soft);border-color:rgba(255,194,26,.3);border-left:3px solid var(--accent)}
+.plain.warn{background:var(--laser-soft);border-color:rgba(255,94,82,.35);border-left-color:var(--laser)}
+.rule,.kit-item,.face,.cc,.sort-item,.checklist label,.parts button,.chip,.opt,.pick,.step-dots button,.field input{background:rgba(11,21,32,.85)}
+.rule{border-color:var(--line)}
+.rule:hover,.kit-item:hover,.sort-item:hover,.parts button:hover,.checklist label:hover{border-color:var(--glow-line)}
+
+.btn{background:rgba(56,225,255,.06);border-color:var(--glow-line);color:var(--ink);transition:box-shadow .2s,border-color .2s}
+.btn:hover{filter:none;border-color:var(--glow);box-shadow:0 0 0 3px rgba(56,225,255,.12),0 0 18px rgba(56,225,255,.25)}
+.btn.ghost{background:transparent;border-color:var(--line)}
+.btn.go{background:var(--accent);border-color:var(--accent);color:var(--on-accent);box-shadow:0 0 18px rgba(255,194,26,.25)}
+.btn.go:hover{box-shadow:0 0 0 3px rgba(255,194,26,.18),0 0 26px rgba(255,194,26,.4)}
+.chip[aria-pressed="true"],.step-dots button[aria-current="step"]{background:var(--glow-soft);color:var(--glow);border-color:var(--glow);box-shadow:0 0 14px rgba(56,225,255,.3)}
+.opt:hover:not(:disabled),.pick:hover{border-color:var(--glow);box-shadow:0 0 12px rgba(56,225,255,.2)}
+.pick.sw-pick{border-color:rgba(255,255,255,.16)}
+.cc .sw{border-color:rgba(255,255,255,.16)}
+.next-link{border-bottom-color:var(--glow);text-shadow:0 0 12px rgba(56,225,255,.3)}
+.key{box-shadow:0 0 16px rgba(255,194,26,.3)}
+.q-bar i{background:linear-gradient(90deg,var(--glow),var(--accent));box-shadow:0 0 10px var(--glow)}
+.streak i.on{box-shadow:0 0 8px var(--accent)}
+.goal.on{box-shadow:0 0 12px rgba(62,224,143,.25)}
+.hs{border-color:var(--ground)}
+.hs.seen{background:var(--glow);color:var(--on-accent)}
+.parts button.seen .n{background:var(--glow);color:var(--on-accent)}
+.cert{background:linear-gradient(180deg,rgba(18,32,46,.95),rgba(11,21,32,.95));border-color:var(--glow);box-shadow:0 0 40px rgba(56,225,255,.18),inset 0 0 0 6px var(--surface),inset 0 0 0 7px var(--line)}
+.cert .cert-name{color:#fff;text-shadow:0 0 22px rgba(56,225,255,.4)}
+.toast{background:var(--surface-2);color:var(--ink);border:1px solid var(--glow-line);box-shadow:0 0 30px rgba(56,225,255,.2)}
+.toast::before{background:var(--glow);box-shadow:0 0 10px var(--glow)}
+thead th{background:rgba(56,225,255,.06)}
+#light{stroke:var(--glow)}
+.net .shape{fill:var(--surface-2)}
+.net [data-node].hl .shape{stroke:var(--glow);fill:var(--glow-soft)}
+.net [data-node].hl .seg{stroke:var(--glow)}
+.net .seg{stroke:var(--cable)}
+.site .dog ellipse,.site .dog circle,.site .dog path{fill:#C08A55}
+.site .dog .dog-tail,.site .dog .dog-legs{stroke:#C08A55}
+.site.hl-vault .vault,.site.hl-door .door{stroke:var(--glow)}
+.site .win{fill:var(--glow);fill-opacity:.12}
+.hero-grid .panel.node-card h3{color:#fff}
 </style>
 </head>
 <body>
@@ -429,6 +494,7 @@ footer .wrap{display:grid;gap:14px}
 
 <!-- STATION 1: THE PATH -->
 <section class="station hero" id="path">
+  <canvas class="hero-fx" id="hero-fx" aria-hidden="true"></canvas>
   <div class="wrap hero-grid">
     <div class="station-head">
       <div class="row"><span class="label">Field training · Fiber optic splicing</span><span class="status" data-status="path">Not lit yet</span></div>
@@ -991,6 +1057,54 @@ footer .wrap{display:grid;gap:14px}
     }, { rootMargin: '-40% 0px -55% 0px' });
     sections.forEach(s => io.observe(s));
   }
+
+
+  /* ---------- hero light pulses ---------- */
+  (function heroFx() {
+    const cv = $('#hero-fx'); if (!cv || !cv.getContext) return;
+    const g = cv.getContext('2d');
+    const reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let W = 0, H = 0, strands = [], raf = null, last = 0;
+    function size() {
+      const dpr = Math.min(2, window.devicePixelRatio || 1);
+      W = cv.clientWidth; H = cv.clientHeight; cv.width = W * dpr; cv.height = H * dpr; g.setTransform(dpr, 0, 0, dpr, 0, 0);
+      strands = Array.from({ length: 9 }, (_, i) => {
+        const y = H * (0.1 + i * 0.085);
+        return { y0: y + (Math.random() - .5) * 60, y1: y + (Math.random() - .5) * 140, c1: (Math.random() - .5) * 180, c2: (Math.random() - .5) * 180,
+          pulses: [Math.random(), Math.random()], speed: 0.00005 + Math.random() * 0.00008, col: i % 4 === 1 ? '255,194,26' : '56,225,255' };
+      });
+      if (reduce) draw(0);
+    }
+    function pt(s, t) {
+      const u = 1 - t, x0 = -60, x1 = W * .33, x2 = W * .66, x3 = W + 60, y0 = s.y0, y1 = s.y0 + s.c1, y2 = s.y1 + s.c2, y3 = s.y1;
+      return [u*u*u*x0 + 3*u*u*t*x1 + 3*u*t*t*x2 + t*t*t*x3, u*u*u*y0 + 3*u*u*t*y1 + 3*u*t*t*y2 + t*t*t*y3];
+    }
+    function draw(dt) {
+      g.clearRect(0, 0, W, H);
+      for (const s of strands) {
+        g.beginPath(); g.moveTo(-60, s.y0); g.bezierCurveTo(W * .33, s.y0 + s.c1, W * .66, s.y1 + s.c2, W + 60, s.y1);
+        g.strokeStyle = 'rgba(56,225,255,.09)'; g.lineWidth = 1.2; g.stroke();
+        s.pulses = s.pulses.map(p => (p + s.speed * dt) % 1);
+        for (const p of s.pulses) {
+          for (let k = 0; k < 16; k++) {
+            const t = p - k * 0.005; if (t < 0) break;
+            const [x, y] = pt(s, t);
+            g.fillStyle = `rgba(${s.col},${(1 - k / 16) * .85})`; g.beginPath(); g.arc(x, y, 2.2 * (1 - k / 20), 0, 6.283); g.fill();
+          }
+          const [x, y] = pt(s, p), grd = g.createRadialGradient(x, y, 0, x, y, 16);
+          grd.addColorStop(0, `rgba(${s.col},.5)`); grd.addColorStop(1, `rgba(${s.col},0)`);
+          g.fillStyle = grd; g.beginPath(); g.arc(x, y, 16, 0, 6.283); g.fill();
+        }
+      }
+    }
+    function loop(now) { draw(Math.min(50, now - last)); last = now; raf = requestAnimationFrame(loop); }
+    function start() { if (!raf && !reduce) { last = performance.now(); raf = requestAnimationFrame(loop); } }
+    function stop() { if (raf) { cancelAnimationFrame(raf); raf = null; } }
+    size(); window.addEventListener('resize', size);
+    if (reduce) return;
+    if ('IntersectionObserver' in window) new IntersectionObserver(es => es[0].isIntersecting ? start() : stop()).observe(cv);
+    else start();
+  })();
 
   /* ---------- station 1: path ---------- */
   const NODES = {
